@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khemish Jangid | Portfolio</title>
+
+<style>
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+    line-height:1.7;
+    position:relative;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#2563eb;
+    border-radius:50%;
+    filter:blur(180px);
+    top:-150px;
+    left:-150px;
+    opacity:.35;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#7c3aed;
+    border-radius:50%;
+    filter:blur(180px);
+    bottom:-150px;
+    right:-150px;
+    opacity:.35;
+    z-index:-2;
+}
+
+/* Navbar */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(10,15,30,.7);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:18px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#60a5fa;
+}
+
+/* Hero Section */
+
+header{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+header img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(255,255,255,.2);
+    box-shadow:
+    0 0 20px #2563eb,
+    0 0 50px #2563eb;
+    transition:.5s;
+}
+
+header img:hover{
+    transform:scale(1.05);
+}
+
+header h1{
+    font-size:4rem;
+    margin-top:25px;
+    font-weight:800;
+    background:linear-gradient(90deg,#60a5fa,#c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    color:#cbd5e1;
+}
+
+/* Buttons */
+
+.btn{
+    display:inline-block;
+    margin:15px 10px;
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 10px 30px rgba(37,99,235,.4);
+}
+
+/* Sections */
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+h2{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    position:relative;
+}
+
+h2::after{
+    content:"";
+    width:90px;
+    height:4px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-10px;
+    border-radius:20px;
+}
+
+/* About */
+
+.about,
+.education{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    padding:35px;
+    border-radius:25px;
+}
+
+/* Skills */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:25px;
+    transition:.4s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    border-color:#2563eb;
+}
+
+.skill-card h3{
+    margin-bottom:15px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+}
+
+/* Projects */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    padding:30px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.project-card::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:5px;
+    top:0;
+    left:0;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
+}
+
+.project-card h3{
+    margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:15px 0;
+}
+
+.contact a{
+    color:#60a5fa;
+    text-decoration:none;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94a3b8;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#2563eb,#7c3aed);
+    border-radius:20px;
+}
+
+/* Animation */
+
+.skill-card,
+.project-card,
+.education{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:2.5rem;
+    }
+
+    header img{
+        width:170px;
+        height:170px;
+    }
+
+    h2{
+        font-size:2rem;
+    }
+
+    .projects,
+    .skills{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+
+<header>
+
+
+<img src="kj.jpeg" alt="Khemish Jangid">
+
+<h1>Khemish Jangid</h1>
+
+<p>
+    Web Developer • MERN Stack Developer • BCA Student
+</p>
+
+<div>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="resume.pdf" download class="btn">Download Resume</a>
+</div>
+
+
+</header>
+
+<!-- Navbar -->
+
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- About -->
+
+<section id="about">
+
+
+<h2>About Me</h2>
+
+<div class="education">
+
+    <p>
+        Hello, I'm <strong>Khemish Jangid</strong>.
+        A passionate MERN Stack Developer and BCA student
+        who loves building responsive websites and web
+        applications.
+
+        I enjoy working with modern web technologies and
+        continuously improving my skills in Full Stack
+        Development.
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- Skills -->
+
+<section id="skills">
+
+<h2>Technical Skills</h2>
+
+<div class="skills">
+
+    <div class="skill-card">
+        <h3>HTML</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:95%"></div>
+        </div>
+
+        <p>95%</p>
+    </div>
+
+    <div class="skill-card">
+        <h3>CSS</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:90%"></div>
+        </div>
+
+        <p>90%</p>
+    </div>
+
+    <div class="skill-card">
+        <h3>JavaScript</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:80%"></div>
+        </div>
+
+        <p>80%</p>
+    </div>
+
+    <div class="skill-card">
+        <h3>Node.js</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:80%"></div>
+        </div>
+
+        <p>80%</p>
+    </div>
+
+    <div class="skill-card">
+        <h3>Express.js</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:75%"></div>
+        </div>
+
+        <p>75%</p>
+    </div>
+
+    <div class="skill-card">
+        <h3>MongoDB</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:75%"></div>
+        </div>
+
+        <p>75%</p>
+    </div>
+  <div class="skill-card">
+        <h3>JAVA</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:55%"></div>
+        </div>
+
+        <p>75%</p>
+    </div>
+  <div class="skill-card">
+        <h3>GoLang</h3>
+
+        <div class="progress">
+            <div class="progress-bar" style="width:55%"></div>
+        </div>
+
+        <p>75%</p>
+    </div>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+
+<h2>Featured Projects</h2>
+
+<div class="projects">
+
+    <div class="project-card">
+
+        <h3>Jaipur Dekho</h3>
+
+        <p>
+            Tourism website developed using
+            HTML, CSS, JavaScript, PHP and MySQL.
+        </p>
+
+        <br>
+
+        <a href="#" class="btn">Live Demo</a>
+
+    </div>
+
+    <div class="project-card">
+
+        <h3>Student Management System</h3>
+
+        <p>
+            Full CRUD Application built using
+            Node.js, Express.js and MySQL.
+        </p>
+
+        <br>
+
+        <a href="#" class="btn">View Project</a>
+
+    </div>
+
+    <div class="project-card">
+
+        <h3>Personal Portfolio</h3>
+
+        <p>
+            Responsive developer portfolio with
+            modern UI and animations.
+        </p>
+
+        <br>
+
+        <a href="#" class="btn">View Project</a>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- Education -->
+
+<section id="education">
+
+
+<h2>Education</h2>
+
+<div class="education">
+
+    <h3>Bachelor of Computer Applications (BCA)</h3>
+
+    <p>Currently Pursuing</p>
+
+    <br>
+
+    <ul>
+        <li>Web Development</li>
+        <li>Database Management System</li>
+        <li>Computer Networks</li>
+        <li>Operating Systems</li>
+        <li>Data Structures</li>
+    </ul>
+
+</div>
+
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+
+<h2>Contact Me</h2>
+
+<div class="education">
+
+    <p>📧 Email : khemish22jangid@gmail.com</p>
+
+    <p>📱 Phone : +91 6377797149</p>
+
+    <p>
+        💻 GitHub :
+        <a href="https://github.com/yourusername" target="_blank">
+            github.com/yourusername
+        </a>
+    </p>
+
+    <p>
+        🔗 LinkedIn :
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">
+            linkedin.com/in/yourprofile
+        </a>
+    </p>
+
+</div>
+
+
+</section>
+
+<footer>
+
+<p>
+    © 2026 Khemish Jangid | MERN Stack Developer
+</p>
+
+
+</footer>
+
+</body>
+</html>
